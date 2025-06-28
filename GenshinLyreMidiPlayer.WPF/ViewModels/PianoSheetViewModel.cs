@@ -7,6 +7,7 @@ using GenshinLyreMidiPlayer.WPF.Core;
 using Melanchall.DryWetMidi.Interaction;
 using PropertyChanged;
 using Stylet;
+using WindowsInput.Native;
 
 namespace GenshinLyreMidiPlayer.WPF.ViewModels;
 
