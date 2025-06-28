@@ -14,7 +14,8 @@ public static class Keyboard
     {
         WindsongLyre,
         FloralZither,
-        VintageLyre
+        VintageLyre,
+        LifeAfter
     }
 
     public enum Layout
@@ -25,25 +26,28 @@ public static class Keyboard
         DVORAK,
         DVORAKLeft,
         DVORAKRight,
-        Colemak
+        Colemak,
+        QWERTY_LFAFTER
     }
 
     public static readonly Dictionary<Instrument, string> InstrumentNames = new()
     {
         [Instrument.WindsongLyre] = "Windsong Lyre",
         [Instrument.FloralZither] = "Floral Zither",
-        [Instrument.VintageLyre]  = "Vintage Lyre"
+        [Instrument.VintageLyre] = "Vintage Lyre",
+        [Instrument.LifeAfter] = "LifeAfter"
     };
 
     public static readonly Dictionary<Layout, string> LayoutNames = new()
     {
-        [Layout.QWERTY]      = "QWERTY",
-        [Layout.QWERTZ]      = "QWERTZ",
-        [Layout.AZERTY]      = "AZERTY",
-        [Layout.DVORAK]      = "DVORAK",
-        [Layout.DVORAKLeft]  = "DVORAK Left Handed",
+        [Layout.QWERTY] = "QWERTY",
+        [Layout.QWERTZ] = "QWERTZ",
+        [Layout.AZERTY] = "AZERTY",
+        [Layout.DVORAK] = "DVORAK",
+        [Layout.DVORAKLeft] = "DVORAK Left Handed",
         [Layout.DVORAKRight] = "DVORAK Right Handed",
-        [Layout.Colemak]     = "Colemak"
+        [Layout.Colemak] = "Colemak",
+        [Layout.QWERTY_LFAFTER] = "QWERTY for LifeAfter"
     };
 
     private static readonly IReadOnlyList<VirtualKeyCode> AZERTY = new List<VirtualKeyCode>
@@ -349,14 +353,15 @@ public static class Keyboard
 
     public static IEnumerable<VirtualKeyCode> GetLayout(Layout layout) => layout switch
     {
-        Layout.QWERTY      => QWERTY,
-        Layout.QWERTZ      => QWERTZ,
-        Layout.AZERTY      => AZERTY,
-        Layout.DVORAK      => DVORAK,
-        Layout.DVORAKLeft  => DVORAKLeft,
-        Layout.DVORAKRight => DVORAKRight,
-        Layout.Colemak     => Colemak,
-        _                  => QWERTY
+        Layout.QWERTY         => QWERTY,
+        Layout.QWERTZ         => QWERTZ,
+        Layout.AZERTY         => AZERTY,
+        Layout.DVORAK         => DVORAK,
+        Layout.DVORAKLeft     => DVORAKLeft,
+        Layout.DVORAKRight    => DVORAKRight,
+        Layout.Colemak        => Colemak,
+        Layout.QWERTY_LFAFTER => QWERTY_LFAFTER,
+        _                     => QWERTY
     };
 
     public static IList<int> GetNotes(Instrument instrument) => instrument switch
@@ -364,6 +369,7 @@ public static class Keyboard
         Instrument.WindsongLyre => DefaultNotes,
         Instrument.FloralZither => DefaultNotes,
         Instrument.VintageLyre  => VintageNotes,
+        Instrument.LifeAfter    => LifeAfterNotes,
         _                       => DefaultNotes
     };
 }
