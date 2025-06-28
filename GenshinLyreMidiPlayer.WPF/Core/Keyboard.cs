@@ -265,7 +265,7 @@ public static class Keyboard
         VirtualKeyCode.OEM_MINUS,
         VirtualKeyCode.OEM_6,
         VirtualKeyCode.OEM_PLUS,
-        VirtualKeyCode.OEM_2
+        VirtualKeyCode.OEM_5
     };
 
     private static readonly List<int> DefaultNotes = new()

@@ -101,7 +101,7 @@ public class PianoSheetViewModel : Screen
                     { VirtualKeyCode.OEM_MINUS, '-' },
                     { VirtualKeyCode.OEM_6,     ']' },
                     { VirtualKeyCode.OEM_PLUS,  '=' },
-                    { VirtualKeyCode.OEM_2,     '/' }
+                    { VirtualKeyCode.OEM_5,     '\\' }
                 };
 
                 if (oemKeyMappings.TryGetValue(key, out char characterToAppend))
