@@ -235,6 +235,35 @@ public static class Keyboard
         VirtualKeyCode.VK_U
     };
 
+    private static readonly IReadOnlyList<VirtualKeyCode> QWERTY_LFAFTER = new List<VirtualKeyCode>
+    {
+        VirtualKeyCode.VK_1,
+        VirtualKeyCode.VK_Q,
+        VirtualKeyCode.VK_2,
+        VirtualKeyCode.VK_W,
+        VirtualKeyCode.VK_3,
+        VirtualKeyCode.VK_E,
+        
+        VirtualKeyCode.VK_R,
+        VirtualKeyCode.VK_5,
+        VirtualKeyCode.VK_T,
+        VirtualKeyCode.VK_6,
+        VirtualKeyCode.VK_Y,
+        VirtualKeyCode.VK_U,
+        VirtualKeyCode.VK_7,
+        VirtualKeyCode.VK_I,
+        VirtualKeyCode.VK_8,
+        VirtualKeyCode.VK_O,
+        VirtualKeyCode.VK_9,
+        VirtualKeyCode.VK_P,
+
+        VirtualKeyCode.VK_OEM_4,
+        VirtualKeyCode.VK_OEM_MINUS,
+        VirtualKeyCode.VK_OEM_6,
+        VirtualKeyCode.VK_OEM_PLUS,
+        VirtualKeyCode.VK_OEM_2
+    };
+
     private static readonly List<int> DefaultNotes = new()
     {
         48, // C3
@@ -287,6 +316,35 @@ public static class Keyboard
         79, // G5
         80, // Ab5
         82  // Bb5
+    };
+
+    private static readonly List<int> LifeAfterNotes = new()
+    {
+        30, // Gb1
+        31, // G1
+        32, // Ab1
+        33, // A1
+        34, // Bb1
+        35, // B1
+
+        36, // C2
+        37, // Db2
+        38, // D2
+        39, // Eb2
+        40, // E2
+        41, // F2
+        42, // Gb2
+        43, // G2
+        44, // Ab2
+        45, // A2
+        46, // Bb2
+        47, // B2
+
+        48, // C3
+        49, // Db3
+        50, // D3
+        51, // Eb3
+        52  // E3
     };
 
     public static IEnumerable<VirtualKeyCode> GetLayout(Layout layout) => layout switch
