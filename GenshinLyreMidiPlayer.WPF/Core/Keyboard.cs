@@ -261,11 +261,11 @@ public static class Keyboard
         VirtualKeyCode.VK_9,
         VirtualKeyCode.VK_P,
 
-        (VirtualKeyCode)0xDB, // VK_OEM_4  ->  '['
-        (VirtualKeyCode)0xBD, // VK_OEM_MINUS ->  '-'
-        (VirtualKeyCode)0xDD, // VK_OEM_6  ->  ']'
-        (VirtualKeyCode)0xBB, // VK_OEM_PLUS ->  '='
-        (VirtualKeyCode)0xBF  // VK_OEM_2  ->  '/'
+        VirtualKeyCode.OEM_4,
+        VirtualKeyCode.OEM_MINUS,
+        VirtualKeyCode.OEM_6,
+        VirtualKeyCode.OEM_PLUS,
+        VirtualKeyCode.OEM_2
     };
 
     private static readonly List<int> DefaultNotes = new()
@@ -353,23 +353,23 @@ public static class Keyboard
 
     public static IEnumerable<VirtualKeyCode> GetLayout(Layout layout) => layout switch
     {
-        Layout.QWERTY => QWERTY,
-        Layout.QWERTZ => QWERTZ,
-        Layout.AZERTY => AZERTY,
-        Layout.DVORAK => DVORAK,
-        Layout.DVORAKLeft => DVORAKLeft,
+        Layout.QWERTY      => QWERTY,
+        Layout.QWERTZ      => QWERTZ,
+        Layout.AZERTY      => AZERTY,
+        Layout.DVORAK      => DVORAK,
+        Layout.DVORAKLeft  => DVORAKLeft,
         Layout.DVORAKRight => DVORAKRight,
-        Layout.Colemak => Colemak,
-        Layout.QWERTY_LA => QWERTY_LFAFTER,
-        _ => QWERTY
+        Layout.Colemak     => Colemak,
+        Layout.QWERTY_LA   => QWERTY_LFAFTER,
+        _                  => QWERTY
     };
 
     public static IList<int> GetNotes(Instrument instrument) => instrument switch
     {
         Instrument.WindsongLyre => DefaultNotes,
         Instrument.FloralZither => DefaultNotes,
-        Instrument.VintageLyre => VintageNotes,
-        Instrument.LifeAfter => LifeAfterNotes,
-        _ => DefaultNotes
+        Instrument.VintageLyre  => VintageNotes,
+        Instrument.LifeAfter    => LifeAfterNotes,
+        _                       => DefaultNotes
     };
 }

@@ -93,7 +93,20 @@ public class PianoSheetViewModel : Screen
                 var dotCount = difference / Shorten;
 
                 sb.Append(new string(Delimiter, (int) dotCount));
-                sb.Append(key.ToString().Last());
+
+                var oemKeyMappings = new Dictionary<VirtualKeyCode, char>
+                {
+                    { VirtualKeyCode.OEM_4,     '[' },
+                    { VirtualKeyCode.OEM_MINUS, '-' },
+                    { VirtualKeyCode.OEM_6,     ']' },
+                    { VirtualKeyCode.OEM_PLUS,  '=' },
+                    { VirtualKeyCode.OEM_2,     '/' }
+                };
+
+                if (oemKeyMappings.TryGetValue(key, out char characterToAppend))
+                    sb.Append(characterToAppend);
+                else
+                    sb.Append(key.ToString().Last());
 
                 last = (int) note.Time;
             }
